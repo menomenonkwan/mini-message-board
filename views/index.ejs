@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <header>
+      <div class="titling">
+        <h1><%= title %></h1>
+        <p>Welcome to the Mini <%= title %></p>
+      </div>
+      <a href="/new">New message</a>
+    </header>
+
+    <% if(messages.length > 0) { %>
+      <% messages.map(message => { %>
+        <div class="card">
+          <h3 class="subject"><%= message.subject %></h3>
+          <div class="post-info">
+            <p class="author"><%= message.author %>: </p>
+            <p class="added"><%= message.added %></p>
+          </div>
+          <p class="text"><%= message.text %></p>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p>There are no messages</p>
+    <% } %>
+     
+  </body>
+</html>
